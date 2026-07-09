@@ -23,7 +23,7 @@ class Solution:
             u = i[0]
             v = i[1]
 
-            if parent[u] == parent[v]:
+            if find(u) == find(v):
                 answer.append(True)
 
             else:
