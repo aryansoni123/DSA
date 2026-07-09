@@ -11,7 +11,7 @@ public:
             curr[1] = max(-prices[i] + front[0], front[1]);
             curr[0] = max(prices[i] - fee + front[1], front[0]);
 
-            front = curr;
+            swap(front, curr);
         }
 
         return front[1];
