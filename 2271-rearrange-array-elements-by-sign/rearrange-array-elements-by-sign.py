@@ -3,31 +3,35 @@ class Solution:
         pos=[]
         neg = []
 
-        for i in nums[::-1]:
+        for i in nums:
             if i<0:
                 neg.append(i)
 
             if i>=0:
                 pos.append(i)
 
-        f = nums[0]>=0
+        # f = nums[0]>=0
 
         # print(f)
 
-        ans = []
+        # ans = []
 
         # if f:
         #     ans.append(pos.pop())
 
-        n = len(nums)
+        ans = [0]*(len(nums))
+        ans[0::2] = pos
+        ans[1::2] = neg
 
-        while n>0:
-            if len(pos):
-                ans.append(pos.pop())
+        # n = len(nums)
 
-            if len(neg):
-                ans.append(neg.pop())
-            n-=2
+        # while n>0:
+        #     if len(pos):
+        #         ans.append(pos.pop())
+
+        #     if len(neg):
+        #         ans.append(neg.pop())
+        #     n-=2
         
         return ans
         
