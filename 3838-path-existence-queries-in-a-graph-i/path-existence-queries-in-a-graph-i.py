@@ -31,12 +31,8 @@ class Solution:
         for i in queries:
             u = i[0]
             v = i[1]
-
-            if parent[u] == parent[v]:
-                answer.append(True)
-
-            else:
-                answer.append(False)
+            
+            answer.append(parent[u] == parent[v])
 
         return answer
 
