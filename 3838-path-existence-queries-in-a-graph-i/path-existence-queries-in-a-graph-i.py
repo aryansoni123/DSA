@@ -15,7 +15,7 @@ class Solution:
                 pu = find(i-1)
                 pv = find(i)
 
-                parent[i] = pu
+                parent[pv] = pu
 
         answer = []
 
