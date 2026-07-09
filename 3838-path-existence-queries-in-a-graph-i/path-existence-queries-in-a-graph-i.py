@@ -1,21 +1,30 @@
 class Solution:
     def pathExistenceQueries(self, n: int, nums: List[int], maxDiff: int, queries: List[List[int]]) -> List[bool]:
 
-        def find(x):
-            if parent[x]!=x:
-                parent[x] = find(parent[x])
+        # def find(x):
+        #     if parent[x]!=x:
+        #         parent[x] = find(parent[x])
 
-            return parent[x]
+        #     return parent[x]
 
-        parent = [i for i in range(n)]
+        # parent = [i for i in range(n)]
+        parent = [0]*n
+
+        # for i in range(1, n):
+        #     if nums[i]<=nums[i-1] + maxDiff:
+                
+        #         pu = find(i-1)
+        #         pv = find(i)
+
+        #         parent[pv] = pu
+
+        cid = 0
 
         for i in range(1, n):
-            if nums[i]<=nums[i-1] + maxDiff:
-                
-                pu = find(i-1)
-                pv = find(i)
+            if nums[i] > nums[i-1] + maxDiff:
+                cid+=1
 
-                parent[pv] = pu
+            parent[i] = cid
 
         answer = []
 
@@ -23,7 +32,7 @@ class Solution:
             u = i[0]
             v = i[1]
 
-            if find(u) == find(v):
+            if parent[u] == parent[v]:
                 answer.append(True)
 
             else:
