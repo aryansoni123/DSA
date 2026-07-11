@@ -9,7 +9,7 @@ class Solution:
         n = len(nums)
         nums.sort()
 
-        print(nums)
+        # print(nums)
 
         for k in range(n):
             i = k+1
