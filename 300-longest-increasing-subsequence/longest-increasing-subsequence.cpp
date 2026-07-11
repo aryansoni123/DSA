@@ -41,7 +41,7 @@ public:
                 int pick = 0, not_pick = 0;
 
                 if(j == -1 || nums[j] < nums[i]) pick = 1 + front[i+1];
-                not_pick = front[j+1];
+                if (j!=-1)not_pick = front[j+1];
                 
                 curr[j+1] = max(pick, not_pick);
                 ans = max(ans, curr[j+1]);
@@ -49,6 +49,7 @@ public:
             swap(curr, front);
         }
 
+        // return front[n];
         return ans;
 
 
