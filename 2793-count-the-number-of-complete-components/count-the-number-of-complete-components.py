@@ -22,31 +22,23 @@ class Solution:
 
             parent[pu] = pv
 
-        cid = -1 
-
         conn = {}
         s = set()
 
         for i in range(n):
             parent[i] = find(i)
             s.add(parent[i])
+
             if parent[i] not in conn:
                 conn[parent[i]] = [i]
 
             else:
                 conn[parent[i]].append(i)
-
-            # conn[parent[i]].append(i)
-
-        # print(parent)
-        # print(s)
-        # print(conn)
-
+        
         cnt = 0
 
         while len(s):
             node = s.pop()
-            # a = b = 0
             b = 0
 
             for i in conn[node]:
@@ -54,20 +46,7 @@ class Solution:
 
             c = len(conn[node])
 
-            # print(b, c*(c-1))
-
             if b == c*(c-1):
                 cnt+=1
-
-            
-            # print(b)
-            # print(len(b))
-            
-            # if len(b)==0 and c ==:
-                # print('s')
-
-
-        # print(a, s)
-
 
         return cnt
