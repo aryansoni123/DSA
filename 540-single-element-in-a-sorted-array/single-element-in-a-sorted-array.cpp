@@ -12,13 +12,13 @@ public:
 
             if((0<mid && nums[mid] == nums[mid-1]) || (mid<=n-2 && nums[mid] == nums[mid+1])){
                 if (mid%2 == 0){
-                    if (nums[mid] == nums[mid-1]) h--;
-                    else l++;
+                    if (nums[mid] == nums[mid-1]) h=mid-1;
+                    else l=mid+1;
                 }
 
                 else if(mid%2==1){
-                    if (nums[mid] == nums[mid-1]) l++;
-                    else h--;
+                    if (nums[mid] == nums[mid-1]) l=mid+1;
+                    else h=mid-1;
                 }
             }
             
