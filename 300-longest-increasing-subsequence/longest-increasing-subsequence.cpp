@@ -25,33 +25,51 @@ public:
 
         // int max1 = INT_MIN;
         int n = nums.size();
+
+
         // nums.push_back(INT_MIN);
 
         // for() max1 = max(max1, it);
 
         // vector<vector<int>> dp(n, vector<int>(n+1, -1));
 
-        vector<int> front(n+1, 0);
-        vector<int> curr(n+1, 0);
-        int ans = INT_MIN;
+        // vector<int> front(n+1, 0);
+        // vector<int> curr(n+1, 0);
+        // int ans = INT_MIN;
 
-        for(int i =  n-1; i>=0; i--){
-            for(int j = n-1; j>=-1; j--){
-                
-                int pick = 0, not_pick = 0;
+        vector<int> dp(n, 1);
+        int mx = 1;
 
-                if(j == -1 || nums[j] < nums[i]) pick = 1 + front[i+1];
-                if (j!=-1) not_pick = front[j+1];
-                
-                curr[j+1] = max(pick, not_pick);
-                ans = max(ans, curr[j+1]);
+        for(int i = 0; i<n; i++){
+            for (int j = 0; j<i; j++){
+                if(nums[i]>nums[j] && 1+dp[j] > dp[i]){
+                    dp[i] = 1 + dp[j];
+                    mx = max(mx, dp[i]);
+                }
             }
-            
-            swap(curr, front);
         }
 
-        // return front[n];
-        return ans;
+        return mx;
+
+        // for(int i =  n-1; i>=0; i--){
+        //     for(int j = n-1; j>=-1; j--){
+                
+        //         // int pick = 0, not_pick = 0;
+
+        //         // if(j == -1 || nums[j] < nums[i]) pick = 1 + front[i+1];
+        //         // if (j!=-1) not_pick = front[j+1];
+                
+        //         // curr[j+1] = max(pick, not_pick);
+        //         // ans = max(ans, curr[j+1]);
+
+
+        //     }
+            
+        //     swap(curr, front);
+        // }
+
+        // // return front[n];
+        // return ans;
 
 
 
