@@ -33,23 +33,39 @@ public:
 
         // vector<vector<int>> dp(n, vector<int>(n+1, -1));
 
+        // vector<int> dp(n, 1);
+        // int mx = 1;
+
+        // for(int i = 0; i<n; i++){
+        //     for (int j = 0; j<i; j++){
+        //         if(nums[i]>nums[j] && 1+dp[j] > dp[i]){
+        //             dp[i] = 1 + dp[j];
+        //             mx = max(mx, dp[i]);
+        //         }
+        //     }
+        // }
+
+        // return mx;
+
+        vector<int> tmp;
+        
+
+        for(int i = 0; i<n; i++){
+            if(!tmp.size() || tmp.back()<nums[i]) tmp.push_back(nums[i]);
+
+            else{
+                auto ind = lower_bound(tmp.begin(), tmp.end(), nums[i]);
+                // tmp[ind] = nums[i];
+                *ind = nums[i];
+            }
+        }
+        
+        return tmp.size();
+
         // vector<int> front(n+1, 0);
         // vector<int> curr(n+1, 0);
         // int ans = INT_MIN;
 
-        vector<int> dp(n, 1);
-        int mx = 1;
-
-        for(int i = 0; i<n; i++){
-            for (int j = 0; j<i; j++){
-                if(nums[i]>nums[j] && 1+dp[j] > dp[i]){
-                    dp[i] = 1 + dp[j];
-                    mx = max(mx, dp[i]);
-                }
-            }
-        }
-
-        return mx;
 
         // for(int i =  n-1; i>=0; i--){
         //     for(int j = n-1; j>=-1; j--){
