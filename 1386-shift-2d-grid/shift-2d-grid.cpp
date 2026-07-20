@@ -13,24 +13,34 @@ public:
         // int s = k/n;
         vector<vector<int>> ans(n, vector<int>(m, 0));
 
-        for(int i = 0; i<n; i++){
-            for(int j = 0; j<m; j++){
-                ans[i][j] = grid[i][j];
-            }
-        }
+        // for(int i = 0; i<n; i++){
+        //     for(int j = 0; j<m; j++){
+        //         ans[i][j] = grid[i][j];
+        //     }
+        // }
         
+        int id, nid, r, c;
 
-        while(k){
-            swap(ans, grid);
+        // while(k){
+            // swap(ans, grid);
             for(int i = 0; i<n; i++){
                 for(int j = 0; j<m; j++){
-                    if (i == n-1 && j == m-1) ans[0][0] = grid[i][j];
-                    else if (j == m-1) ans[i+1][0] = grid[i][j];
-                    else ans[i][j+1] = grid[i][j];
+                    id = i * m + j;
+
+                    nid = (id+k) % (m*n);
+
+                    r = nid / m;
+                    c = nid % m;
+
+                    ans[r][c] = grid[i][j];
+
+                    // if (i == n-1 && j == m-1) ans[0][0] = grid[i][j];
+                    // else if (j == m-1) ans[i+1][0] = grid[i][j];
+                    // else ans[i][j+1] = grid[i][j];
                 }
             }
-            k--;
-        }
+            // k--;
+        // }
 
         return ans;
               
