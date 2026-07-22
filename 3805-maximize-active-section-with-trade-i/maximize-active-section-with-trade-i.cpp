@@ -22,24 +22,12 @@ public:
                 mx = max(prev+cnt, mx);
                 prev = cnt;
                 cnt = 0;
-                // cnt = 0
-                // zeros.push_back(cnt);
             }
             i++;
         }
 
         if(prev!=0 && cnt!=0) mx = max(prev+cnt, mx);
-        // if (cnt!=0) zeros.push_back(cnt);
-        // cout<<zeros.size();
-
-        // if(zeros.size() == 1) return ini;
-
-        // for(int i: zeros) cout<<i;
-
-        // for(int i = 1; i<zeros.size(); i++){
-        //     mx = max(zeros[i-1]+zeros[i], mx);
-        // }
-        cout<<ini;
+    
         return mx+ini;
     }
 };
