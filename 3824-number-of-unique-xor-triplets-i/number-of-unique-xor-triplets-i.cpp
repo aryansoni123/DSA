@@ -1,10 +1,7 @@
 class Solution {
 public:
     int uniqueXorTriplets(vector<int>& nums) {
-        set<int> s;
-
-        int n = nums.size();
-        int m;
+        int m, n = nums.size();
 
         if (n == 1) return 1;
         else if (n==2) return 2;
@@ -13,7 +10,6 @@ public:
             if (n<=pow(2,i) && n>=pow(2,i-1)) m = i;
         }
 
-        long long a = pow(2, m);
-        return a;
+        return pow(2,m);
     }
 };
