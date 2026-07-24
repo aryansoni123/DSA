@@ -27,13 +27,13 @@ public:
         // int tot = 0;
 
         vector<vector<int>> dp(n+1, vector<int>(20001, -1));
-        vector<int> nums;
+        // vector<int> nums;
 
-        for(auto x: stones){
-            // tot+=x;
-            nums.push_back(x);
-        }
+        // for(auto x: stones){
+        //     // tot+=x;
+        //     nums.push_back(x);
+        // }
 
-        return f(0, 0, nums, dp);
+        return f(0, 0, stones, dp);
     }
 };
