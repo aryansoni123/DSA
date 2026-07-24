@@ -16,11 +16,6 @@ public:
 
                     dp[i] = 1 + dp[j];
                     mx = max(mx, dp[i]);
-
-                    // if(dp[i]>mx){
-                    //     mx = dp[i];
-                    //     // cnt = i;
-                    // } else if(dp[i] == mx) cnt++;
                 }
             }
         }
