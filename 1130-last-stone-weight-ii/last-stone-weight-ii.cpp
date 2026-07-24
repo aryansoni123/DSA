@@ -5,7 +5,6 @@ public:
         int n = nums.size();
 
         if(i==n) return abs(target);
-        // if(target<=0) return INT_MAX;
 
         if (dp[i][target + 3000]!=-1) return dp[i][target + 3000];
 
@@ -20,20 +19,8 @@ public:
     int lastStoneWeightII(vector<int>& stones) {
         int n = stones.size();
 
-        // for(int i = 1; i<n; i++){
-        //     for(int j = 1; )
-        // }
-
-        // int tot = 0;
-
         vector<vector<int>> dp(n+1, vector<int>(20001, -1));
-        // vector<int> nums;
-
-        // for(auto x: stones){
-        //     // tot+=x;
-        //     nums.push_back(x);
-        // }
-
+        
         return f(0, 0, stones, dp);
     }
 };
