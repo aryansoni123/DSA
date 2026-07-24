@@ -11,9 +11,6 @@ public:
             mx = max(x, mx);
         }
 
-        int limit = 1;
-        while (limit <= mx)
-            limit <<= 1;
 
         for(int i = 1; i<=11; i++){
             if(pow(2,i-1)<= mx && pow(2, i)>mx){
@@ -21,8 +18,6 @@ public:
                 break;
             }
         }
-        // rng = limit;
-        // cout<<rng<<limit<<mx;
 
         vector<bool> xor_vec(rng+1, false);
         vector<bool> xor_vec2(rng+1, false);
@@ -47,8 +42,6 @@ public:
         for(auto x: xor_vec2){
             if (x) cnt++;
         }
-
-        // cout<<rng;
 
         return cnt;
     }
