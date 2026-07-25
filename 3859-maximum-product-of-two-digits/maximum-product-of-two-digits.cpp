@@ -12,10 +12,12 @@ public:
 
         sort(s.begin(), s.end());
 
-        for(int i = 1; i<s.size(); i++){
-            mx = max(mx,s[i-1]*s[i]);
-        }
+        int m = s.size();
 
-        return mx;
+        // for(int i = 1; i<s.size(); i++){
+        //     mx = max(mx,s[i-1]*s[i]);
+        // }
+
+        return s[m-1]*s[m-2];
     }
 };
