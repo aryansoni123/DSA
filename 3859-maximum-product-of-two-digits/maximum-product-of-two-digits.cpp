@@ -12,8 +12,6 @@ public:
 
         sort(s.begin(), s.end());
 
-        // for(auto x: s) cout<<x;
-
         for(int i = 1; i<s.size(); i++){
             mx = max(mx,s[i-1]*s[i]);
         }
