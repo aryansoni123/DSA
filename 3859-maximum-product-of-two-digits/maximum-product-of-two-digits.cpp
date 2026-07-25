@@ -14,10 +14,6 @@ public:
 
         int m = s.size();
 
-        // for(int i = 1; i<s.size(); i++){
-        //     mx = max(mx,s[i-1]*s[i]);
-        // }
-
         return s[m-1]*s[m-2];
     }
 };
