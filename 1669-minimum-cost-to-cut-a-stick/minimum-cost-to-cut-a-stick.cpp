@@ -28,30 +28,30 @@ public:
         cuts.push_back(0);
         int m = cuts.size();
 
-        vector<vector<int>> dp(m, vector<int>(m,-1));
-        // vector<vector<int>> dp(m, vector<int>(m,0));
+        // vector<vector<int>> dp(m, vector<int>(m,-1));
         sort(cuts.begin(), cuts.end());
+        vector<vector<int>> dp(m, vector<int>(m,0));
 
-        return f(1, m-2, cuts, dp);
+        // return f(1, m-2, cuts, dp);
 
-        // int cut, cutss, mini = 0;
+        int cut, cutss, mini = 0;
 
-        // for(int i = m-2; i>0; i--){
-        //     for(int j = i; j<=m-2; j++){
-        //         mini = INT_MAX;
-        //         for(int k = i; k<=j; k++){
-        //             // if (i == 0) cut = cuts[j+1];
-        //             // else 
-        //             cut = cuts[j+1] - cuts[i-1];
+        for(int i = m-2; i>0; i--){
+            for(int j = i; j<=m-2; j++){
+                mini = INT_MAX;
+                for(int k = i; k<=j; k++){
+                    // if (i == 0) cut = cuts[j+1];
+                    // else 
+                    cut = cuts[j+1] - cuts[i-1];
 
-        //             cutss = cut + ((k==i) ? 0 : dp[i][k-1]) + ((k==j) ? 0 : dp[k+1][j]);
-        //             mini = min(mini, cutss);
-        //         }
-        //         dp[i][j] = mini;
+                    cutss = cut + ((k==i) ? 0 : dp[i][k-1]) + ((k==j) ? 0 : dp[k+1][j]);
+                    mini = min(mini, cutss);
+                }
+                dp[i][j] = mini;
 
-        //     }
-        // }
+            }
+        }
 
-        // return dp[1][m-2];
+        return dp[1][m-2];
     }
 };
