@@ -1,7 +1,7 @@
 class Solution {
 public:
     string smallestPalindrome(string s) {
-        sort(s.begin(), s.end());
+        // sort(s.begin(), s.end());
 
         map<char, int> mpp;
 
