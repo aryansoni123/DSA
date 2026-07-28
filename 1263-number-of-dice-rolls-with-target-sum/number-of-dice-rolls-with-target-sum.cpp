@@ -19,7 +19,7 @@ public:
         long long ans = 0;
 
         for(int l = 1; l<=k; l++){
-            ans+=f(n-1, target - l, k, dp)%MOD;
+            ans+=f(n-1, target - l, k, dp) % MOD;
         }
 
         return dp[n][target] = ans % MOD;
