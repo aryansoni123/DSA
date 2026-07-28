@@ -1,43 +1,33 @@
 class Solution {
 public:
     string smallestPalindrome(string s) {
-        // sort(s.begin(), s.end());
-
-        map<char, int> mpp;
+        vector<int> freq(26, 0);
 
         string ans = "";
 
-        for(int i = 0; i<s.size(); i++){
-            mpp[s[i]]++;
-            // if(i%2 == 0) ans+=s[i];
+        for(char c: s){
+            freq[c - 'a']++;
         }
 
         string b = "";
 
-        for(auto &it: mpp){
-            if (it.second%2){
-                it.second-=1;
-                b+=it.first;
+        for(int i = 0; i<26; i++){
+            if (freq[i] % 2){
+                freq[i]-=1;
+                b = char(i + 'a');
             }
 
-            while(it.second){
-                ans+=it.first;
-                it.second-=2;
+            while(freq[i]){
+                ans+=char(i + 'a');
+                freq[i]-=2;
             }
-
-            // cout<<it.first<<' '<<it.second<<endl;
         }
 
-        // cout<<endl;
-
-        // cout<<ans;
 
         string c = ans;
+        
         reverse(ans.begin(), ans.end());
-        // if (s.size()%2 == 0) c+=ans;
-        // else{
-        //     // c.pop_back();
-        // }
+        
         c = c + b + ans;
 
         return c;
