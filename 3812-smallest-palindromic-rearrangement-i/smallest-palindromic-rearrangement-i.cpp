@@ -3,28 +3,26 @@ public:
     string smallestPalindrome(string s) {
         // sort(s.begin(), s.end());
 
-
-        // map<char, int> mpp;
-        vector<int> freq(26, 0);
+        map<char, int> mpp;
 
         string ans = "";
 
-        for(char c: s){
-            freq[c - 'a']++;
+        for(int i = 0; i<s.size(); i++){
+            mpp[s[i]]++;
             // if(i%2 == 0) ans+=s[i];
         }
 
         string b = "";
 
-        for(int i = 0; i<26; i++){
-            if (freq[i] % 2){
-                freq[i]-=1;
-                b = char(i + 'a');
+        for(auto &it: mpp){
+            if (it.second%2){
+                it.second-=1;
+                b+=it.first;
             }
 
-            while(freq[i]){
-                ans+=char(i + 'a');
-                freq[i]-=2;
+            while(it.second){
+                ans+=it.first;
+                it.second-=2;
             }
 
             // cout<<it.first<<' '<<it.second<<endl;
