@@ -29,8 +29,6 @@ public:
 
         vector<vector<vector<int>>> dp(n, vector<vector<int>>(n, vector<int>(2, -1)));
 
-        int a = f(0, n-1, 1, nums, dp);
-
-        return a>=0;
+        return f(0, n-1, 1, nums, dp)>=0;
     }
 };
