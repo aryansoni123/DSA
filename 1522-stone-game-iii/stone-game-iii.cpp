@@ -19,7 +19,8 @@ public:
     string stoneGameIII(vector<int>& stoneValue) {
         int n = stoneValue.size();
 
-        vector<int> dp(n+1, 0);
+        // vector<int> dp(n, -1);
+        vector<int> dp(3, 0);
 
         // int ans = f(0, stoneValue, dp);
 
@@ -28,9 +29,11 @@ public:
             
             for(int k = i; k<i+3 && k<n; k++){
                 pick+=stoneValue[k];
-                ans = max(ans, pick - dp[k+1]);
+                ans = max(ans, pick - dp[k-i]);
             }
-            dp[i] = ans;
+            dp[2] = dp[1];
+            dp[1] = dp[0];
+            dp[0] = ans;            
         }
 
         int ans = dp[0];
