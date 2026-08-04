@@ -15,8 +15,6 @@ public:
 
         bloomed+=cnt/k;
 
-        // cout<<bloomed<<' '<<day<<' '<<m<<endl;
-
         if(bloomed>=m) return true;
         return false;
 
@@ -29,8 +27,6 @@ public:
 
         if(possible>n) return -1;
 
-        // cout<<1;
-
         int low = *min_element(bloomDay.begin(), bloomDay.end());
         int high = *max_element(bloomDay.begin(), bloomDay.end());
 
@@ -40,7 +36,6 @@ public:
             int day = low+(high-low)/2;
 
             if(isPossible(day, bloomDay, m, k)){
-                // cout<<69<<endl;
                 ans = day;
                 high = day - 1;
             } else{
