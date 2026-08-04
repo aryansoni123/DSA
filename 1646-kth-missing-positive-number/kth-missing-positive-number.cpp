@@ -19,14 +19,6 @@ public:
             }
         }
 
-        // cout<<h<<" "<<l<<endl;
-
-        // cout<<arr[h]<<endl;
-
-        int missing = arr[h] - h - 1;
-        // cout<<missing;
-        int need = k - missing;
-
-        return arr[h] + need;
+        return arr[h] + k - arr[h] + h + 1;
     }
 };
