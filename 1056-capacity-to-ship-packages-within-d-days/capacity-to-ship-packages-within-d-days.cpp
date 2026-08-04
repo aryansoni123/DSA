@@ -18,7 +18,7 @@ public:
     }
 
     int shipWithinDays(vector<int>& weights, int days) {
-        int low = 0, high = 0, ans = -1;
+        int low = 0, high = 0;
     
         for(auto x: weights){
             low = max(low, x);
@@ -29,13 +29,12 @@ public:
             int mid = low + (high - low)/2;
 
             if(isPossible(mid, days, weights)){
-                ans = mid;
                 high = mid - 1;
             } else{
                 low = mid + 1;
             }
         }
 
-        return ans;
+        return low;
     }
 };
