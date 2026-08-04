@@ -19,6 +19,6 @@ public:
             }
         }
 
-        return arr[h] + k - arr[h] + h + 1;
+        return k + h + 1;
     }
 };
