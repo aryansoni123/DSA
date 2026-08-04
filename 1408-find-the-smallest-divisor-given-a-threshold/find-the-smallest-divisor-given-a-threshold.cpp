@@ -24,13 +24,12 @@ public:
             mx = max(mx, x);
             mn = min(mn, x);
         }
-        int low = 1, high = mx, ans = mx;
+        int low = 1, high = mx;
 
         while(low<=high){
             int mid = low+(high-low)/2;
 
             if(isPossible(mid, threshold, nums)){
-                ans = mid;
                 high = mid - 1;
             } else{
                 low = mid + 1;
