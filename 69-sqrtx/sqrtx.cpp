@@ -11,15 +11,15 @@ public:
 
             double sqr = m*m;
 
-            if(sqr>=x){
+            if(sqr<=x){
                 ans = m;
-                h = m-1;
-            } else{
                 l = m+1;
+            } else{
+                h = m-1;
             }
         }
 
-        if (ans*ans == x) return (int)ans;
-        return (int)ans-1;
+        // if (ans*ans == x) return (int)ans;
+        return (int)ans;
     }
 };
