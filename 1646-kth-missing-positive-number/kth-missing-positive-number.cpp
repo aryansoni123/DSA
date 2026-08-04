@@ -19,12 +19,12 @@ public:
             }
         }
 
-        cout<<h<<" "<<l<<endl;
+        // cout<<h<<" "<<l<<endl;
 
-        cout<<arr[h]<<endl;
+        // cout<<arr[h]<<endl;
 
         int missing = arr[h] - h - 1;
-        cout<<missing;
+        // cout<<missing;
         int need = k - missing;
 
         return arr[h] + need;
