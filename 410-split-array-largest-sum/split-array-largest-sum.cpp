@@ -3,28 +3,22 @@ public:
 
     int isPossible(int mid, int k, vector<int>& nums){
         int cap = 0;
-        int cnt = 1;
 
         for(auto x: nums){
             if(cap + x <= mid){
                 cap+=x;
             } else{
                 cap = x;
-                // k--;
-                cnt++;
-
-                // if(k==0) return true;
+                k--;            
             }
         }
-        // k--;
+        k--;
 
-        return cnt<=k;
+        return k>=0;
     }
 
     int splitArray(vector<int>& nums, int k) {
         int l = 0, h = 0;
-
-        // if(k>nums.size()) return -1
 
         for( auto x: nums){
             l = max(l, x);
