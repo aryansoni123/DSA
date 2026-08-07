@@ -22,12 +22,10 @@ public:
     }
 
     int jump(vector<int>& nums) {
-
         int n = nums.size();
 
         vector<int> dp(n, -1);
 
         return f(0, nums, dp);
-        
     }
 };
