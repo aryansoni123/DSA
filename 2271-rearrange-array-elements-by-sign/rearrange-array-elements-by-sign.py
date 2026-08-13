@@ -12,15 +12,15 @@ class Solution:
 
 
         ans = [0]*len(nums)
-        # ans[0::2] = pos
-        # ans[1::2] = neg
+        ans[0::2] = pos
+        ans[1::2] = neg
 
-        for i in range(len(nums)):
-            if i%2 == 0:
-                ans[i] = pos[i//2]
+        # for i in range(len(nums)):
+        #     if i%2 == 0:
+        #         ans[i] = pos[i//2]
 
-            else:
-                ans[i] = neg[i//2]
+        #     else:
+        #         ans[i] = neg[i//2]
 
         return ans
         
