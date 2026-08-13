@@ -9,9 +9,10 @@ class Solution(object):
         p = 0
 
         for i in range(1, len(prices)):
-            if(prices[i] - buy) > 0:
-                p = max(p, prices[i]-buy)
-
+            cost = prices[i] - buy
+            # if(prices[i] - buy) > 0:
+            #     p = max(p, prices[i]-buy)
+            p = max(p, cost)
             buy = min(prices[i], buy)
 
         return p
