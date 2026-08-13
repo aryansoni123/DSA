@@ -11,9 +11,16 @@ class Solution:
                 pos.append(i)
 
 
-        ans = [0]*(len(nums))
-        ans[0::2] = pos
-        ans[1::2] = neg
+        ans = []
+        # ans[0::2] = pos
+        # ans[1::2] = neg
+
+        for i in range(len(nums)):
+            if i%2 == 0:
+                ans.append(pos[i//2])
+
+            else:
+                ans.append(neg[i//2])
 
         return ans
         
