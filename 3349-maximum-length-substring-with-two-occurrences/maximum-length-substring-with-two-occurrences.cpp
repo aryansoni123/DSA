@@ -5,13 +5,14 @@ public:
         int n = s.size();
         int ans = 0;
 
-        map<char, int> mpp;
+        // map<char, int> mpp;
+        vector<int> freq(26, 0);
 
         for(int i = 0; i<n; i++){
-            mpp[s[i]]++;
+            freq[s[i] - 'a']++;
 
-            while (mpp[s[i]]>2){
-                mpp[s[l]]--;
+            while (freq[s[i] - 'a']>2){
+                freq[s[l] - 'a']--;
                 l++;
             }
 
