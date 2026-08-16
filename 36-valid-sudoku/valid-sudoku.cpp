@@ -15,29 +15,15 @@ public:
         return true;
     }
     
-    bool f(vector<vector<char>>& board){
+
+    bool isValidSudoku(vector<vector<char>>& board) {
         for (int i = 0; i<9; i++){
             for(int j = 0; j<9; j++){
                 if(board[i][j] != '.'){
-                //     for(int val = 1; val<=9; val++){
                     if(isValid(board[i][j], i, j , board) == false) return false;
-                    // {
-            //             board[i][j] = val + '0';
-            //             if(f(board)) return true;
-            //             board[i][j] = '.';
-            //         } 
-            //     }
-            //     return false;
                 }
-
-
             }
         }
-
         return true;
-    }
-
-    bool isValidSudoku(vector<vector<char>>& board) {
-        return f(board);
     }
 };
