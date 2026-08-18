@@ -1,11 +1,13 @@
 class Solution {
 public:
 
-    void f(int i, vector<int> &nums, vector<int> &temp, set<vector<int>> &ans, vector<int> &freq){
+    // void f(int i, vector<int> &nums, vector<int> &temp, set<vector<int>> &ans, vector<int> &freq){
+    void f(int i, vector<int> &nums, vector<int> &temp, vector<vector<int>> &ans, vector<int> &freq){
         int n = nums.size();
 
         if(i == n){
-            ans.insert(temp);
+            // ans.insert(temp);
+            ans.push_back(temp);
             return;
         }
 
@@ -34,13 +36,13 @@ public:
         vector<int> freq(n, 0);
         vector<vector<int>> ans;
         
-        f(0, nums, temp, s, freq);
+        f(0, nums, temp, ans, freq);
 
-        cout<<s.size();
+        // cout<<s.size();
 
-        for(auto x: s){
-            ans.push_back(x);
-        }
+        // for(auto x: s){
+        //     ans.push_back(x);
+        // }
 
         return ans;
     }
