@@ -22,6 +22,19 @@ public:
 
         vector<int> dp(n, -1);
 
-        return f(0, nums, dp);
+        int far = 0;
+
+        for(int i = 0; i<n; i++){
+
+            if(i>far) return false;
+
+            far = max(far, i + nums[i]);
+
+            if(far>=n-1) return true;
+        }
+
+        return false;
+
+        // return f(0, nums, dp);
     }
 };
