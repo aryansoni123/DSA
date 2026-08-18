@@ -13,13 +13,14 @@ public:
 
         if(k==n) return mx;
 
-        else if(k == 1){
-            int ans = -1;
+        int ans = -1;
+
+        if(k == 1){
             for(auto it: mpp){
                 int key = it.first;
                 int val = it.second;
 
-                cout<<key<<' '<<val<<endl;
+                // cout<<key<<' '<<val<<endl;
 
                 if(val == 1) ans = max(ans, key);
             }
@@ -36,7 +37,7 @@ public:
             else if(mpp[first] == 1 && mpp[last] == 1){
                 return max(last, first);
             }
-            
+
             else if(mpp[last]>1) return first;
             else if(mpp[first]>1) return last;
         }
