@@ -17,32 +17,35 @@ public:
 
         if(k == 1){
             for(auto it: mpp){
-                int key = it.first;
-                int val = it.second;
+                int val = it.first;
+                int freq = it.second;
 
-                // cout<<key<<' '<<val<<endl;
-
-                if(val == 1) ans = max(ans, key);
+                if(freq == 1) 
+                    ans = max(ans, val);
             }
 
             return ans;
         }
 
-        else{
-            int last = nums[n-1];
-            int first = nums[0];
+        int last = nums[n-1];
+        int first = nums[0];
 
-            if(mpp[last]!=1 && mpp[first]!=1) return -1;
-            
-            else if(mpp[first] == 1 && mpp[last] == 1){
-                return max(last, first);
-            }
+        if (mpp[nums[0]] == 1)
+            ans = max(ans, nums[0]);
 
-            else if(mpp[last]>1) return first;
-            else if(mpp[first]>1) return last;
-        }
+        if (mpp[nums[n-1]] == 1)
+            ans = max(ans, nums[n-1]);
 
-        return -1;
+        // if(mpp[last]!=1 && mpp[first]!=1) return -1;
+        
+        // else if(mpp[first] == 1 && mpp[last] == 1){
+        //     return max(last, first);
+        // }
+
+        // else if(mpp[last]>1) return first;
+        // else if(mpp[first]>1) return last;
+
+        return ans;
 
     }
 };
