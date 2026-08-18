@@ -10,7 +10,8 @@ public:
         }
 
         for(int j = 0; j<n; j++){
-            // if (j!=0 && nums[j-1] == nums[j]) continue;
+            if (j > 0 && nums[j] == nums[j - 1] && !freq[j - 1])
+                continue;
 
             if(freq[j] == 0){
                 temp.push_back(nums[j]);
@@ -26,7 +27,7 @@ public:
 
         int n = nums.size();
 
-        // sort(nums.begin(), nums.end());
+        sort(nums.begin(), nums.end());
 
         set<vector<int>> s;
         vector<int> temp;
