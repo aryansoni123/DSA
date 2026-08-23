@@ -6,8 +6,8 @@ public:
 
         for(int i = 0; i<n; i++){
             if(num[i] == '?'){
-                if(i+1>n/2) q++;
-                else q--;
+                if(i+1>n/2) q--;
+                else q++;
             } 
             else{
                 if(i+1>n/2) s+=num[i] - '0';
@@ -15,19 +15,6 @@ public:
             }
         }
 
-        return (2*s != -q*9);
-
-        // if(q == 0) return s!=0;
-
-        // if(q>0){
-        //     if (abs(s)>9) return true;
-        //     else return false;
-        // } else return s!=0;
-
-        // cout<<s<<' '<<q;
-
-        // // if()
-
-        // return true;
+        return (2*s != q*9);
     }
 };
