@@ -15,6 +15,6 @@ public:
             }
         }
 
-        return (s+s != q*9);
+        return (s*2 != q*9);
     }
 };
