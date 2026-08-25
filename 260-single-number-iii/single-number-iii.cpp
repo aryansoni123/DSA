@@ -5,21 +5,21 @@ public:
 
         for(auto x: nums) n^=x;
 
-        int p = 0;
+        // int p = 0;
 
-        while(true){
-            long long val = (long long)(n & (1LL<<p));
+        // while(true){
+        //     long long val = n & (1LL<<p);
 
-            if(val>0) break;
+        //     if(val>0) break;
 
-            p++;
-        }
+        //     p++;
+        // }
 
-        // int mul = (n&(n-1))^n;
+        int mul = (n&(n-1))^n;
 
         // int mul = n&(-n);
 
-        int mul = 1<<p;
+        // int mul = 1<<p;
 
         int val1 = 0, val2 = 0;
 
