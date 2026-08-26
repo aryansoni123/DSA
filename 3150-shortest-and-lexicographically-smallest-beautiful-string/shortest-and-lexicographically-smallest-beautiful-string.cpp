@@ -8,7 +8,7 @@ public:
         int cnt = 0;
         int ans = -1;
 
-        cout<<n<<endl;
+        // cout<<n<<endl;
 
         for(int i = 0; i<n; i++){
             int x = s[i];
@@ -39,10 +39,10 @@ public:
         
         ans = last-first+1;
 
-        cout<<f1<<' '<<f2;
-        cout<<endl;
-        cout<<ans;
-        cout<<endl;
+        // cout<<f1<<' '<<f2;
+        // cout<<endl;
+        // cout<<ans;
+        // cout<<endl;
 
         int f = 0;
 
@@ -60,7 +60,7 @@ public:
             while(last<n && s[last]!='1'){
                 last++;
             }
-            cout<<first<<' '<<last<<endl;
+            // cout<<first<<' '<<last<<endl;
 
             if(first>=n || last>=n) break;
 
@@ -69,10 +69,10 @@ public:
 
                 if(diff<=ans){
                     f1 = first;
-                    f2 = last;
+                    // f2 = last;
 
-                    cout<<'j'<<ans;
-                    cout<<endl;
+                    // cout<<'j'<<ans;
+                    // cout<<endl;
 
                     if(diff<ans){
                         a = s.substr(f1, diff);
@@ -85,8 +85,6 @@ public:
                             i++;
                         }
 
-                        // if(i==a.size()) continue
-
                         if(i!=a.size() && b[i]<a[i]){
                             a = b;
                         }
@@ -94,14 +92,14 @@ public:
 
                     ans = diff;
 
-                    cout<<'i'<<ans;
-                    cout<<endl;
+                    // cout<<'i'<<ans;
+                    // cout<<endl;
                 }
             }
 
         }
 
-        cout<<f1<<' '<<f2;
+        // cout<<f1<<' '<<f2;
 
         // if(f1 == -1 && f2 == -1) return "";
 
