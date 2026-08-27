@@ -25,10 +25,10 @@ public:
 
         // ind = ind == 0 ? n-1; ind-1;
 
-        cout<<mx;
-        cout<<endl;
-        cout<<ind;
-        cout<<endl;
+        // cout<<mx;
+        // cout<<endl;
+        // cout<<ind;
+        // cout<<endl;
         // cout<<cnt;
 
         while(cnt<n){
