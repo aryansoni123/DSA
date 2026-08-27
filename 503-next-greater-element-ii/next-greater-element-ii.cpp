@@ -11,26 +11,6 @@ public:
         int ind = 0;
         int cnt = 0;
 
-        // for(int i = 0; i<n; i++){
-        //     if(nums[i]>mx){
-        //         mx = nums[i];
-        //         ind = i;
-        //         cnt=1;
-        //     } else if(nums[i] == mx) cnt++;
-        // }
-
-        // mpp[mx] = -1;
-
-        cnt = 0;
-
-        // ind = ind == 0 ? n-1; ind-1;
-
-        // cout<<mx;
-        // cout<<endl;
-        // cout<<ind;
-        // cout<<endl;
-        // cout<<cnt;
-
         while(cnt<2*n){
 
             while(!st.empty() && st.top()<=nums[ind]){
