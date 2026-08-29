@@ -44,7 +44,7 @@ public:
         long long ans = 0;
 
         for(int i = 0; i<n; i++){
-            long long val = ((long long)(i-pse[i]) * (long long)(nse[i]-i) * (long long)arr[i]) % MOD;
+            long long val = ((long long)(i-pse[i]) * (nse[i]-i) * arr[i]) % MOD;
             ans += val;
             ans%=MOD;
         }
