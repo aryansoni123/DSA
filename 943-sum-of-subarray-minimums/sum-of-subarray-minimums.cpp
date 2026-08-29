@@ -2,7 +2,7 @@ class Solution {
 public:
     int sumSubarrayMins(vector<int>& arr) {
 
-        int MOD = pow(10, 9) + 7;
+        const long long MOD = 1e9 + 7;
 
         int n = arr.size();
 
