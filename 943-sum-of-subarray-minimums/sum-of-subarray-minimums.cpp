@@ -19,11 +19,9 @@ public:
                     st.pop();
                 }
 
-                if(st.empty()) st.push(i);
-                else if(arr[st.top()] <= arr[i]){
-                    pse[i] = st.top();
-                    st.push(i);
-                }
+                if(!st.empty()) pse[i] = st.top();
+                
+                st.push(i);
             }
         }
         
@@ -37,18 +35,16 @@ public:
                     st.pop();
                 }
 
-                if(st.empty()) st.push(i);
-                else if(arr[st.top()] <= arr[i]){
-                    nse[i] = st.top();
-                    st.push(i);
-                }
+                if(!st.empty()) nse[i] = st.top();
+                    
+                st.push(i);
             }
         }
 
         long long ans = 0;
 
         for(int i = 0; i<n; i++){
-            long long val = ((long long)(i-pse[i]) * (long long)(nse[i]-i) * (long long)arr[i]) % (long long)MOD;
+            long long val = ((long long)(i-pse[i]) * (long long)(nse[i]-i) * (long long)arr[i]) % MOD;
             ans += val;
             ans%=MOD;
         }
