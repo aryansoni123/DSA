@@ -6,10 +6,6 @@ public:
 
         int n = nums.size();
 
-        cout<<n;
-        cout<<endl;
-
-
         for(int i = 0; i<n; i++){
             if(nums[i] < mini){
                 mini = nums[i];
@@ -31,15 +27,5 @@ public:
 
         return min(both, min(left, right));
 
-        // cout<<mind<<' '<<Mind;
-        // cout<<endl;        
-
-        // cout<<mind<<' '<<Mind;
-
-        // if((mind>0 && Mind<0) || (mind<0 && Mind>0)){
-        //     return abs(mind) + abs(Mind);
-        // }
-
-        // return max(mind, Mind);
     }
 };
