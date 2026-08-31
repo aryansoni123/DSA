@@ -43,24 +43,8 @@ public:
 
         for(int i = 0; i<n; i++){
 
-            // if(pse[i] == -1 && nse[i] == -1){
-            //     ans = max(ans, heights[i]);
-            //     continue;
-            // }
-
-            int l = 0, r = 0, hl = INT_MAX, hr = INT_MAX;
-
-            // if(pse[i]!=-1) l = i-pse[i];
-            // if(nse[i]!=-1) r = nse[i]-i;
-
             int dist = nse[i] - pse[i] - 1;
 
-            if(pse[i]!=-1) hl = heights[pse[i]];
-            if(nse[i]!=-1) hr = heights[nse[i]];
-
-            int h = min(min(hl, hr), heights[i]);
-
-            // ans = max(ans, max(dist*h, heights[i]));
             ans = max(ans, dist*heights[i]);
         }
 
