@@ -20,16 +20,10 @@ public:
             }
         }
 
-        string ans;
-
         while(k>0){
             st.pop_back();
             k--;
         }
-
-        // for(auto x: st){
-        //     ans+= x ;
-        // }
 
         int i = 0;
 
@@ -37,6 +31,8 @@ public:
 
         int n = st.size();
 
-        return st.substr(i, n-i) == "" ? "0" : st.substr(i, n-i);
+        string ans = st.substr(i, n-i);
+
+        return ans == "" ? "0" : ans;
     }
 };
