@@ -14,7 +14,6 @@ public:
                 st.push(val);
             } else{
                 while(!st.empty() && st.top()>val && k>0){
-                    // if(st.top()>val) k--;
                     st.pop();
                     k--;
                 } 
@@ -41,11 +40,8 @@ public:
 
         while(ans[i]=='0') i++;
 
-
         int n = ans.size();
 
-        // cout<<k<<' '<<ans;
-
-        return ans.substr(i, n-i-k) == "" ? "0" : ans.substr(i, n-i-k);
+        return ans.substr(i, n-i) == "" ? "0" : ans.substr(i, n-i);
     }
 };
