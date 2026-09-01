@@ -1,7 +1,7 @@
 class Solution {
 public:
     string removeKdigits(string num, int k) {
-        stack<int> st;
+        vector<int> st;
 
         int m = num.size();
 
@@ -11,30 +11,30 @@ public:
             int val = x - '0';
 
             if(st.empty()){
-                st.push(val);
+                st.push_back(val);
             } else{
-                while(!st.empty() && st.top()>val && k>0){
-                    st.pop();
+                while(!st.empty() && st.back()>val && k>0){
+                    st.pop_back();
                     k--;
                 } 
 
-                st.push(val);
+                st.push_back(val);
             }
         }
 
         string ans;
 
         while(k>0){
-            st.pop();
+            st.pop_back();
             k--;
         }
 
-        while(!st.empty()){
-            ans+= (char)st.top() + '0';
-            st.pop();
+        for(auto x: st){
+            ans+= (char)x + '0';
+            // st.pop();
         }
 
-        reverse(ans.begin(), ans.end());
+        // reverse(ans.begin(), ans.end());
 
         int i = 0;
 
