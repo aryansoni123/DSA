@@ -57,18 +57,25 @@ public:
         int n = matrix.size();
         int m = matrix[0].size();
 
-        vector<vector<int>> nums(n, vector<int>(m, 0));
+        vector<int> nums(m, 0);
+        vector<int> nxt(m, 0);
 
-        for(int i = 0; i<m; i++) nums[0][i] = matrix[0][i] - '0';
+        for(int i = 0; i<m; i++) nums[i] = matrix[0][i] - '0';
+
+        int ans = 0;
+
+        ans = max(ans, maxRect(nums));
 
         for(int i = 1; i<n; i++){
             for(int j = 0; j<m; j++){
-                if(matrix[i][j] != '0') nums[i][j] = nums[i-1][j] + 1;
-                else nums[i][j] = 0;
+                if(matrix[i][j] != '0') nxt[j] = nums[j] + 1;
+                else nxt[j] = 0;
             }
+
+            ans = max(ans, maxRect(nxt));
+            swap(nums, nxt);
         }
 
-        int ans = 0;
 
         // for(auto row: matrix){
         //     for(auto x: row){
@@ -84,7 +91,6 @@ public:
             //     cout<<x<<' ';
             // }
             // cout<<endl;
-            ans = max(ans, maxRect(row));
         }
 
         return ans;
