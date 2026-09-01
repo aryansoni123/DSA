@@ -1,15 +1,13 @@
 class Solution {
 public:
     string removeKdigits(string num, int k) {
-        vector<char> st;
+        string st;
 
         int m = num.size();
 
         if(k==m) return "0";
 
         for(auto x: num){
-            // int val = x - '0';
-
             if(st.empty()){
                 st.push_back(x);
             } else{
@@ -29,16 +27,16 @@ public:
             k--;
         }
 
-        for(auto x: st){
-            ans+= x ;
-        }
+        // for(auto x: st){
+        //     ans+= x ;
+        // }
 
         int i = 0;
 
-        while(ans[i]=='0') i++;
+        while(st[i]=='0') i++;
 
-        int n = ans.size();
+        int n = st.size();
 
-        return ans.substr(i, n-i) == "" ? "0" : ans.substr(i, n-i);
+        return st.substr(i, n-i) == "" ? "0" : st.substr(i, n-i);
     }
 };
