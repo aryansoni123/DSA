@@ -76,23 +76,6 @@ public:
             swap(nums, nxt);
         }
 
-
-        // for(auto row: matrix){
-        //     for(auto x: row){
-        //         cout<<x<<' ';
-        //     }
-        //     cout<<endl;
-        //     // ans = max(ans, maxRect(row));
-        // }
-        // cout<<endl;
-
-        for(auto row: nums){
-            // for(auto x: row){
-            //     cout<<x<<' ';
-            // }
-            // cout<<endl;
-        }
-
         return ans;
     }
 };
