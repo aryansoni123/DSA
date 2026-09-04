@@ -16,7 +16,7 @@ public:
 class LRUCache {
     int cap;
 
-    map<int, Node*> mpp;
+    unordered_map<int, Node*> mpp;
     Node *head, *tail;
 
 
@@ -59,7 +59,6 @@ public:
     
     void put(int key, int value) {
 
-        Node* node = new Node(key, value);
 
         if(mpp.contains(key)){
             Node* loc = mpp[key];
@@ -68,6 +67,7 @@ public:
             insertathead(loc);
 
         }else{
+            Node* node = new Node(key, value);
             if(mpp.size()<cap){
                 mpp[key] = node;
                 insertathead(node);
