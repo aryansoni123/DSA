@@ -77,6 +77,7 @@ public:
                 Node* lru = tail->prev;
                 del(lru);
                 mpp.erase(lru->key);
+                delete lru;
 
                 mpp[key] = node;
                 insertathead(node);
