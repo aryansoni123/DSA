@@ -54,12 +54,11 @@ public:
     }
 
     int averageOfSubtree(TreeNode* root) {
-        stack<TreeNode*> q;
+        // stack<TreeNode*> q;
 
         // unordered_map<TreeNode*, vector<int>> dp;
-        ans = 0;
+        // ans = 0;
         sum_cnt(root);
-
         return ans;
 
 
