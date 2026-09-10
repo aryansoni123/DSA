@@ -11,55 +11,79 @@
  */
 class Solution {
 public:
+    int ans = 0;
 
-    vector<int> sum_cnt(TreeNode* node, unordered_map<TreeNode*, vector<int>> &dp){
-        if(!node->left && !node->right) return {node->val, 1};
+    bool isLeaf(TreeNode* node){
+        if(!node->left && !node->right) return true;
+        return false;
+    }
 
-        // if(!node) return {-1, -1};
+    // vector<int> sum_cnt(TreeNode* node, unordered_map<TreeNode*, vector<int>> &dp){
+    vector<int> sum_cnt(TreeNode* node){
+        // if(!node->left && !node->right) return {node->val, 1};
 
-        // int l_cnt= 0, r_cnt = 0, l_sum = 0, r_sum= 0;
+        if(isLeaf(node)){
+            ans++;
+            return {node->val, 1};
+        }
 
-        if(dp.contains(node)) return dp[node];
+        // if(dp.contains(node)) return dp[node];
 
         vector<int> l = {0, 0}, r = {0,0};
 
         if(node->left){
-            l = sum_cnt(node->left, dp);
+            l = sum_cnt(node->left);
+            // l = sum_cnt(node->left, dp);
         }
 
         if(node->right){
-            r = sum_cnt(node->right, dp);
+            r = sum_cnt(node->right);
+            // r = sum_cnt(node->right, dp);
         }
 
-        return dp[node] = {l[0] + r[0] + node->val, l[1] + r[1] + 1};
+        int sum = l[0] + r[0] + node->val;
+        int cnt = l[1] + r[1] + 1;
+
+        if(sum/cnt == node->val){
+            ans++;
+            cout<<node->val;
+        }
+
+        // return dp[node] = {sum, cnt};
+        return {sum, cnt};
     }
 
     int averageOfSubtree(TreeNode* root) {
         stack<TreeNode*> q;
 
         unordered_map<TreeNode*, vector<int>> dp;
+        ans = 0;
+        sum_cnt(root);
 
-        q.push(root);
+        return ans;
 
-        int cnt = 0;
 
-        while(!q.empty()){
-            TreeNode* node = q.top();
-            q.pop();
+        // q.push(root);
 
-            if(node->left != NULL){
-                q.push(node->left);
-            }
+        // int cnt = 0;
 
-            if(node->right!=NULL){
-                q.push(node->right);
-            }
+        // while(!q.empty()){
+        //     TreeNode* node = q.top();
+        //     q.pop();
 
-            vector<int> v = sum_cnt(node, dp);
+        //     if(node->left != NULL){
+        //         q.push(node->left);
+        //     }
 
-            if(v[0]/v[1] == node->val) cnt++;
-        }
+        //     if(node->right!=NULL){
+        //         q.push(node->right);
+        //     }
 
-        return cnt;
+        //     vector<int> v = sum_cnt(node, dp);
+
+        //     if(v[0]/v[1] == node->val) cnt++;
+        // }
+
+        // return cnt;
     }
 };
