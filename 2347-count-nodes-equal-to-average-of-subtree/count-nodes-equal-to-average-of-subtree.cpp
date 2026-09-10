@@ -12,28 +12,32 @@
 class Solution {
 public:
 
-    vector<int> sum_cnt(TreeNode* node){
+    vector<int> sum_cnt(TreeNode* node, unordered_map<TreeNode*, vector<int>> &dp){
         if(!node->left && !node->right) return {node->val, 1};
 
         // if(!node) return {-1, -1};
 
         // int l_cnt= 0, r_cnt = 0, l_sum = 0, r_sum= 0;
 
+        if(dp.contains(node)) return dp[node];
+
         vector<int> l = {0, 0}, r = {0,0};
 
         if(node->left){
-            l = sum_cnt(node->left);
+            l = sum_cnt(node->left, dp);
         }
 
         if(node->right){
-            r = sum_cnt(node->right);
+            r = sum_cnt(node->right, dp);
         }
 
-        return {l[0] + r[0] + node->val, l[1] + r[1] + 1};
+        return dp[node] = {l[0] + r[0] + node->val, l[1] + r[1] + 1};
     }
 
     int averageOfSubtree(TreeNode* root) {
         stack<TreeNode*> q;
+
+        unordered_map<TreeNode*, vector<int>> dp;
 
         q.push(root);
 
@@ -51,7 +55,7 @@ public:
                 q.push(node->right);
             }
 
-            vector<int> v = sum_cnt(node);
+            vector<int> v = sum_cnt(node, dp);
 
             if(v[0]/v[1] == node->val) cnt++;
         }
