@@ -35,9 +35,9 @@ public:
 
         f(0, 0, digits, freq, vals);
 
-        for(auto x: vals){
-            cout<<x<<' ';
-        }
+        // for(auto x: vals){
+        //     cout<<x<<' ';
+        // }
 
         return vals.size();      
     }
