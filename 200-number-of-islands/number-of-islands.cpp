@@ -9,26 +9,27 @@ public:
         vector<int> dr = {0,1,0,-1};
         vector<int> dc = {1,0,-1,0};
 
-        queue<pair<int, int>> q;
+        // queue<pair<int, int>> q;
 
-        q.push({i,j});
+        // q.push({i,j});
         vis[i][j] = 1;
 
-        while(!q.empty()){
-            auto [r, c] = q.front();
-            q.pop();
+        // while(!q.empty()){
+        //     auto [r, c] = q.front();
+        //     q.pop();
 
-            for(int k = 0; k<4; k++){
-                int nr = r + dr[k];
-                int nc = c + dc[k];
+        for(int k = 0; k<4; k++){
+            int nr = i + dr[k];
+            int nc = j + dc[k];
 
-                if(nr>=0 && nr<n && nc>=0 && nc<m && vis[nr][nc]==0 && grid[nr][nc] == '1'){
-                    vis[nr][nc] = 1;
-                    q.push({nr, nc});
-                    // ans++;
-                }
+            if(nr>=0 && nr<n && nc>=0 && nc<m && vis[nr][nc]==0 && grid[nr][nc] == '1'){
+                // vis[nr][nc] = 1;
+                // q.push({nr, nc});
+                bfs(nr, nc, vis, grid);
+                // ans++;
             }
         }
+        // }
 
         return;
     }
