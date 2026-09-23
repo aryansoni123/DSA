@@ -64,7 +64,7 @@ public:
                 sub += bfs(n-1, i, vis, grid);
         }
 
-        cout<<tot;
+        // cout<<tot;
 
         return tot-sub;
     }
