@@ -1,13 +1,13 @@
 class Solution {
 public:
+    vector<int> dr = {0,1,0,-1};
+    vector<int> dc = {1,0,-1,0};
 
     void bfs(int i, int j, vector<vector<int>> &vis, vector<vector<char>> &grid){
         int n = grid.size();
         int m = grid[0].size();
         // int ans = 1;
 
-        vector<int> dr = {0,1,0,-1};
-        vector<int> dc = {1,0,-1,0};
 
         // queue<pair<int, int>> q;
 
