@@ -4,8 +4,7 @@ public:
         int n = numCourses;
 
         vector<int> indeg(n, 0);
-        // vector<vector<int>>(adj)
-        unordered_map<int, vector<int>> adj;
+        vector<vector<int>> adj(n);
 
         for(auto x: prerequisites){
             indeg[x[1]]++;
@@ -26,7 +25,6 @@ public:
             q.pop();
 
             vis[node] = 1;
-
             cnt++;
 
             for(auto x: adj[node]){
