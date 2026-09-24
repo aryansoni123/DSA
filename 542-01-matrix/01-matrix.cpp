@@ -9,24 +9,24 @@ public:
 
         vector<vector<int>> vis(n, vector<int>(m, -1));
 
-        queue<vector<int>> q;
+        queue<pair<int, int>> q;
 
         for(int i = 0; i<n; i++){
             for(int j = 0; j<m; j++){
                 if(mat[i][j] == 0){
                     vis[i][j] = 0;
-                    q.push({i, j, 0});
+                    q.push({i, j});
                 }
             }
         }
 
         while(!q.empty()){
-            vector<int> node = q.front();
+            auto [r,c] = q.front();
             q.pop();
 
-            int r = node[0];
-            int c = node[1];
-            int d = node[2];
+            // int r = node[0];
+            // int c = node[1];
+            // int d = node[2];
 
 
             for(int i = 0; i<4; i++){
@@ -34,8 +34,8 @@ public:
                 int nc = c+dc[i];
 
                 if(nr>=0 && nr<n && nc>=0 && nc<m && vis[nr][nc]==-1){
-                    vis[nr][nc] = d+1;
-                    q.push({nr, nc, d+1});
+                    vis[nr][nc] = vis[r][c] + 1;
+                    q.push({nr, nc});
                 }
             }
         }
