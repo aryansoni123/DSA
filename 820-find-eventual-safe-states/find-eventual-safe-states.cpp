@@ -16,8 +16,12 @@ public:
 
         queue<int> q;
 
+        vector<int> sf(n, 0);
+
         for(int i = 0; i<n; i++){
-            if(indeg[i] == 0) q.push(i);
+            if(indeg[i] == 0){
+                q.push(i);
+            }
         }
 
         vector<int> topo;
@@ -26,7 +30,7 @@ public:
             int node = q.front();
             q.pop();
 
-            topo.push_back(node);
+            sf[node] = 1;
 
             for(auto x: adj[node]){
                 indeg[x]--;
@@ -34,7 +38,9 @@ public:
             }
         }
 
-        sort(topo.begin(), topo.end());
+        for(int i = 0; i<n; i++){
+            if(sf[i]) topo.push_back(i);
+        }
 
         return topo;
     }
