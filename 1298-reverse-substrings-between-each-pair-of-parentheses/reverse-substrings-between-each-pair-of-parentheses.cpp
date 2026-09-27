@@ -1,6 +1,8 @@
 class Solution {
 public:
 
+    // Not Even a hint
+
     pair<string, int> helper(int i, string &s){
         int n = s.size();
 
@@ -19,9 +21,6 @@ public:
 
 
         reverse(tmp.begin(), tmp.end());
-        // cout<<tmp;
-        // reverse(tmp.begin(), tmp.begin() + tmp.size()/2);
-        // reverse(tmp.end() - tmp.size()/2, tmp.end());
 
         return {tmp, ++i};
     }
@@ -43,19 +42,7 @@ public:
                 i++;
             }
         }
-
-        // auto [ans, i] = helper(1, s);
-        // cout<<i;
         
         return ans;
-        // return "";
     }
-
-
-    /*
-         
-    
-    
-    
-    */
 };
