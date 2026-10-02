@@ -1,31 +1,40 @@
 class Solution {
 public:
 
-    int f(int i, int n, int cnt, string &temp, vector<string> &ans){
+    void f(int i, int n, int cnt, string &tmp, vector<string> &ans){
         if(i==0){
-            if(cnt==0) ans.push_back(temp);
-            return 0;
-        };
 
-        if(cnt<=n){
-            temp.push_back('(');
-            f(i-1, n, cnt+1, temp, ans);
-            temp.pop_back();
+            if(cnt == 0){
+                // cout<<'1';
+                ans.push_back(tmp);
+            }
+
+            return;
+        }
+
+        if(cnt>n) return;
+
+        if(cnt>=0){
+            tmp+='(';
+            f(i-1, n, cnt+1, tmp, ans);
+            tmp.pop_back();
         }
 
         if(cnt>0){
-            temp.push_back(')');
-            f(i-1, n, cnt-1, temp, ans);
-            temp.pop_back();
-        } 
-
-        return 0;
+            tmp+=')';
+            f(i-1, n, cnt-1, tmp, ans);
+            tmp.pop_back();
+        }
     }
 
     vector<string> generateParenthesis(int n) {
-        string temp = "";
         vector<string> ans;
-        f(2*n, n, 0, temp, ans);
+
+        string tmp = "";
+
+        f(2*n, n, 0, tmp, ans);
+
+
 
         return ans;
     }
