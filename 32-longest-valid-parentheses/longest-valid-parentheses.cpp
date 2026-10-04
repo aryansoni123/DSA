@@ -22,7 +22,7 @@ public:
             }
         }
 
-        int res2 = 0;
+        int res = 0;
 
         open = 0;
         close = 0;
@@ -37,15 +37,11 @@ public:
             }
 
             if(open == close){
-                res2 = max(res2, open + close);
+                res = max(res, open + close);
             }
         }
 
-        return max(res2, ans);
+        return max(res, ans);
 
-
-        // if(open>close) ans = 2*close;
-
-        // return ans;
     }
 };
