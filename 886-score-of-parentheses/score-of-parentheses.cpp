@@ -5,8 +5,6 @@ public:
 
         stack<int> st;
 
-        // if(s == "((((((())))()())))") return
-
         for(int i = 0; i<n; i++){
             if(s[i] == '(') st.push(0);
 
@@ -32,10 +30,8 @@ public:
         int ans = 0;
 
         while(!st.empty()){
-            // cout<<st.top();
             ans+=st.top();
             st.pop();
-            cout<<endl;
         }
 
         return ans;
