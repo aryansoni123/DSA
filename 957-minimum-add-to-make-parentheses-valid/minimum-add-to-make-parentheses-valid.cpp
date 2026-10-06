@@ -12,7 +12,6 @@ public:
                 ans+=abs(cnt);
                 cnt = 0;
             }
-
         }
 
         return abs(cnt) + ans;
