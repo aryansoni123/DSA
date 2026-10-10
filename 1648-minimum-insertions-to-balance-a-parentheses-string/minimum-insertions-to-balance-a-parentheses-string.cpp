@@ -7,7 +7,7 @@ public:
         int i = 0;
 
         stack<char> st;
-        
+
         while(i<n){
             if(s[i] == '(') st.push(s[i]);
             else{
@@ -31,11 +31,11 @@ public:
             i++;
         }
 
-        while(!st.empty()){
-            ans+=2;
-            st.pop();
-        }
+        // while(!st.empty()){
+        //     ans+=2;
+        //     st.pop();
+        // }
 
-        return ans;
+        return ans + 2*st.size();
     }
 };
