@@ -3,22 +3,20 @@ public:
     long long maxAlternatingSum(vector<int>& nums) {
         int n = nums.size();
 
-        vector<int> arr;
-
         for(int i = 0; i<n; i++){
-            arr.push_back(abs(nums[i]));
+            nums[i] = abs(nums[i]);
         }
 
-        sort(arr.begin(), arr.end());
+        sort(nums.begin(), nums.end());
 
         long long ans = 0;
 
         for(int i = 0; i<n/2; i++){
-            ans-=(1LL*arr[i]*arr[i]);
+            ans-=(1LL*nums[i]*nums[i]);
         }
 
         for(int i = n/2; i<n; i++){
-            ans+=(1LL*arr[i]*arr[i]);
+            ans+=(1LL*nums[i]*nums[i]);
         }
 
         return ans;
