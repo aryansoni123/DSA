@@ -3,7 +3,6 @@ public:
     long long maxAlternatingSum(vector<int>& nums) {
         int n = nums.size();
 
-        // priority_queue<int> pq;
         vector<int> arr;
 
         for(int i = 0; i<n; i++){
@@ -16,17 +15,12 @@ public:
 
         for(int i = 0; i<n/2; i++){
             ans-=(1LL*arr[i]*arr[i]);
-            // cout<<arr[i]<<' ';
         }
 
         for(int i = n/2; i<n; i++){
             ans+=(1LL*arr[i]*arr[i]);
-            // cout<<arr[i]<<' ';
         }
 
         return ans;
-
-
-        // for(auto x: pq)
     }
 };
