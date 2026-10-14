@@ -3,7 +3,9 @@ public:
     string maxSumOfSquares(int num, int sum) {
         string ans = "";
 
-        while(num>0){
+        if (sum > 9 * num) return "";
+
+        while(num>0 && sum>=0){
             if(sum == 0){
                 string s(num, '0');
                 ans+=s;
