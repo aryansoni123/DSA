@@ -3,16 +3,39 @@ public:
     string maxSumOfSquares(int num, int sum) {
         string ans = "";
 
-        if (sum > 9 * num) return "";
+        while(num>0){
+            // ans*=10;
+            if(sum == 0){
+                ans+='0';
+                num--;
+                continue;
+            }
 
-        while(num>0 && sum>=0){
-            int i = min(9, sum);
+            for(int i = 9; i>=0; i--){
+                if(sum>=i){
+                    ans+=(i+'0');
+                    sum-=i;
+                    break;
+                }
+            }
 
-            ans+=(i+'0');
-            sum-=i;
             num--;
         }
-        
-        return ans;
+
+        // string res = "";
+
+        if(sum == 0 && num == 0){
+            // while(ans>0){
+            //     res+= (ans%10) + '0';
+            //     ans/=10;
+            // }
+            return ans;
+        }
+
+        // reverse(res.begin(), res.end());
+
+        // cout<<res;
+
+        return "";
     }
 };
