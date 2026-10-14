@@ -12,11 +12,7 @@ public:
             sum-=i;
             num--;
         }
-
-        // if(sum == 0 && num == 0) 
         
         return ans;
-
-        // return "";
     }
 };
