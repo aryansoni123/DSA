@@ -11,14 +11,10 @@ public:
                 break;
             }
 
-            for(int i = 9; i>=0; i--){
-                if(sum>=i){
-                    ans+=(i+'0');
-                    sum-=i;
-                    break;
-                }
-            }
+            int i = min(9, sum);
 
+            ans+=(i+'0');
+            sum-=i;
             num--;
         }
 
